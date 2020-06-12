@@ -4,6 +4,7 @@
 </template>
 
 <script>
+    import './index.less'
     export default {
         name: "app-header",
         data(){
@@ -13,7 +14,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>
