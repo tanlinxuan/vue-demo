@@ -1,7 +1,9 @@
 <template>
-    <app-header/>
-    <router-view/>
-    <app-footer/>
+    <div class="main">
+        <app-header/>
+        <router-view/>
+        <app-footer/>
+    </div>
 </template>
 <script>
     import Header from './header.vue'

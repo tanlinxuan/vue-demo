@@ -1,10 +1,14 @@
 <template>
-    
+    <div class="page-home">{{test}}</div>
 </template>
-
 <script>
     export default {
-        name: "home"
+        name: "home",
+        data(){
+            return{
+                test:'app-home'
+            }
+        }
     }
 </script>
 

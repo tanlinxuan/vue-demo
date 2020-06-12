@@ -1,9 +1,8 @@
 const path=require('path')
 const {VueLoaderPlugin}=require('vue-loader')
 const HtmlWebpackPlugin=require('html-webpack-plugin')
-const resolve = src => {
-    return path.resolve(__dirname, src);
-};
+const  projectConfig = require('./project.config')
+
 const webpackConfig= {
     entry:{
         path:path.join(__dirname,'./src/index.js'),
@@ -14,14 +13,7 @@ const webpackConfig= {
     },
     resolve: {
         alias:{
-            'vue$':'vue/dist/vue.esm.js',
-            '@':resolve('src'),
-            '@components': resolve('src/components'),
-            '@less': resolve('src/less'),
-            '@util': resolve('src/utils'),
-            '@assets': resolve('src/assets'),
-            '@pages': resolve('src/pages'),
-            '@router': resolve('src/router'),
+            ...projectConfig.alias
         },
         extensions: ['.js', '.jsx','.json']
     },
