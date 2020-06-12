@@ -2,7 +2,7 @@
     <app-main></app-main>
 </template>
 <script>
-    import Main from '@components/main.vue'
+    import Main from '@components/main'
     export default {
         name:'app',
         components: {

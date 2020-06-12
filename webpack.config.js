@@ -2,7 +2,6 @@ const path=require('path')
 const {VueLoaderPlugin}=require('vue-loader')
 const HtmlWebpackPlugin=require('html-webpack-plugin')
 const  projectConfig = require('./project.config')
-
 const webpackConfig= {
     entry:{
         path:path.join(__dirname,'./src/index.js'),
@@ -15,7 +14,8 @@ const webpackConfig= {
         alias:{
             ...projectConfig.alias
         },
-        extensions: ['.js', '.jsx','.json']
+        mainFiles:["index"], //默认解析 文件夹下 name 为index 的文件
+        extensions: ['.js', '.vue','.json'] // 解析默认解析文件 的后缀
     },
     mode:process.env.NODE_ENV,
     module:{
@@ -23,6 +23,12 @@ const webpackConfig= {
             {
                 test:/\.vue$/,
                 use:'vue-loader'
+            },
+            {
+                test: /\.(less|css)$/,
+                use: ['style-loader', 'css-loader', 'less-loader'],
+                exclude: /node_modules/,
+                include: path.resolve(__dirname, 'src')
             },
             {
                 test:/\.(png|jpg|jepg|svg)$/,
